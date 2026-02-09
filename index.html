@@ -6,246 +6,229 @@
 <title>LALOO Birthday Festival Countdown</title>
 
 <style>
-  body{
-    margin:0;
-    background:transparent;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  }
+body{
+  margin:0;
+  background:transparent;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
 
-  .wrap{
-    max-width:1040px;
-    margin:0 auto;
-    padding:16px;
-  }
+.wrap{
+  max-width:1040px;
+  margin:0 auto;
+  padding:16px;
+}
 
-  /* Pink / Laloo vibe */
-  .card{
-    position:relative;
-    border-radius:22px;
-    padding:22px 18px 18px;
-    color:#ffffff;
-    background:
-      radial-gradient(900px 420px at 12% 0%, rgba(255, 64, 160, .32), transparent 60%),
-      radial-gradient(820px 380px at 88% 10%, rgba(255, 214, 232, .30), transparent 60%),
-      radial-gradient(900px 520px at 60% 120%, rgba(255, 160, 205, .22), transparent 65%),
-      linear-gradient(135deg, #ff4aa6 0%, #ff86c6 35%, #ffb7df 70%, #ffd6ea 100%);
-    box-shadow:0 18px 46px rgba(0,0,0,.18);
-    overflow:hidden;
-  }
+/* Pink / Laloo vibe */
+.card{
+  position:relative;
+  border-radius:22px;
+  padding:22px 18px 18px;
+  color:#ffffff;
+  background:
+    radial-gradient(900px 420px at 12% 0%, rgba(255, 64, 160, .35), transparent 60%),
+    radial-gradient(820px 380px at 88% 10%, rgba(255, 214, 232, .34), transparent 60%),
+    radial-gradient(900px 520px at 60% 120%, rgba(255, 160, 205, .28), transparent 65%),
+    linear-gradient(135deg, #ff4aa6 0%, #ff86c6 35%, #ffb7df 70%, #ffd6ea 100%);
+  box-shadow:0 18px 46px rgba(0,0,0,.18);
+  overflow:hidden;
+}
 
-  /* Soft glass overlay for readability */
-  .glass{
-    position:absolute;
-    inset:0;
-    background: linear-gradient(180deg, rgba(20,10,18,.22), rgba(20,10,18,.10));
-    pointer-events:none;
-  }
+/* overlays */
+.glass{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(20,10,18,.22), rgba(20,10,18,.08));
+  pointer-events:none;
+}
 
-  /* subtle aura */
-  .aura{
-    position:absolute;
-    inset:-35%;
-    background:
-      radial-gradient(35% 30% at 18% 35%, rgba(255, 90, 180, .26), transparent 58%),
-      radial-gradient(35% 30% at 60% 20%, rgba(255, 255, 255, .20), transparent 58%),
-      radial-gradient(35% 30% at 82% 55%, rgba(255, 180, 220, .24), transparent 58%);
-    filter: blur(26px);
-    opacity:.9;
-    pointer-events:none;
-  }
+.aura{
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(35% 30% at 18% 35%, rgba(255, 90, 180, .32), transparent 58%),
+    radial-gradient(35% 30% at 60% 20%, rgba(255, 255, 255, .24), transparent 58%),
+    radial-gradient(35% 30% at 82% 55%, rgba(255, 180, 220, .28), transparent 58%);
+  filter: blur(30px);
+  opacity:1;
+  pointer-events:none;
+}
 
-  .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:12px;
-    background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.26);
-    position:relative;
-    z-index:2;
-    backdrop-filter: blur(6px);
-  }
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.30);
+  position:relative;
+  z-index:3;
+  backdrop-filter: blur(6px);
+}
 
-  .header{
-    text-align:center;
-    position:relative;
-    z-index:2;
-    margin-top:10px;
-    margin-bottom:14px;
-  }
+.header{
+  text-align:center;
+  position:relative;
+  z-index:3;
+  margin-top:10px;
+  margin-bottom:14px;
+}
 
-  .title{
-    font-size:22px;
-    font-weight:950;
-    letter-spacing:.2px;
-    line-height:1.2;
-    text-shadow: 0 10px 26px rgba(0,0,0,.18);
-  }
+.title{
+  font-size:22px;
+  font-weight:950;
+  line-height:1.2;
+  text-shadow:0 12px 28px rgba(0,0,0,.25);
+}
 
-  .subtitle{
-    margin-top:8px;
-    font-size:13px;
-    opacity:.95;
-    text-shadow: 0 10px 26px rgba(0,0,0,.14);
-  }
+.subtitle{
+  margin-top:8px;
+  font-size:13px;
+  opacity:.95;
+}
 
-  .expires{
-    margin-top:14px;
-    font-size:13px;
-    font-weight:950;
-    letter-spacing:.45px;
-    opacity:.98;
-    text-shadow: 0 10px 26px rgba(0,0,0,.16);
-  }
+.expires{
+  margin-top:14px;
+  font-size:13px;
+  font-weight:950;
+  letter-spacing:.45px;
+}
 
+/* TIMER */
+.timer{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:3;
+}
+
+.unit{
+  flex:1 1 140px;
+  max-width:170px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.30);
+  border-radius:16px;
+  padding:14px 10px;
+  text-align:center;
+  backdrop-filter: blur(12px);
+}
+
+.num{
+  font-size:34px;
+  font-weight:950;
+}
+
+.label{
+  margin-top:6px;
+  font-size:12px;
+}
+
+/* CTA */
+.cta-wrap{
+  margin-top:14px;
+  text-align:center;
+  position:relative;
+  z-index:3;
+}
+
+.cta{
+  display:inline-block;
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:950;
+  font-size:13px;
+  color:#2b0f1c;
+  background: linear-gradient(90deg, #ff5aa8 0%, #ffb0d9 100%);
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 16px 34px rgba(255,90,168,.28);
+  text-decoration:none;
+}
+
+/* ❤️ HEARTS – more + stronger motion */
+.hearts span{
+  position:absolute;
+  font-size:20px;
+  opacity:.28;
+  z-index:1;
+  animation:
+    floatY 6s ease-in-out infinite,
+    driftX 10s linear infinite,
+    pulse 3.5s ease-in-out infinite;
+}
+
+@keyframes floatY{
+  0%{transform:translateY(14px)}
+  50%{transform:translateY(-26px)}
+  100%{transform:translateY(14px)}
+}
+
+@keyframes driftX{
+  0%{margin-left:-8px}
+  50%{margin-left:12px}
+  100%{margin-left:-8px}
+}
+
+@keyframes pulse{
+  0%,100%{opacity:.22; transform:scale(1)}
+  50%{opacity:.38; transform:scale(1.18)}
+}
+
+/* positions (many hearts) */
+.h1{left:6%;top:18%}
+.h2{left:12%;top:62%}
+.h3{left:18%;top:32%}
+.h4{left:26%;top:78%}
+.h5{left:34%;top:22%}
+.h6{left:42%;top:58%}
+.h7{left:50%;top:30%}
+.h8{left:58%;top:74%}
+.h9{left:66%;top:40%}
+.h10{left:74%;top:18%}
+.h11{left:82%;top:60%}
+.h12{left:90%;top:34%}
+
+/* END */
+.end{
+  display:none;
+  text-align:center;
+  margin-top:14px;
+  padding:14px;
+  border-radius:16px;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.30);
+  font-weight:950;
+}
+
+.card.is-ended .timer,
+.card.is-ended .cta-wrap{display:none;}
+.card.is-ended .end{display:block;}
+
+/* MOBILE 2x2 */
+@media(max-width:520px){
   .timer{
-    margin-top:14px;
-    display:flex;
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:10px;
-    justify-content:center;
-    flex-wrap:wrap;
-    position:relative;
-    z-index:2;
   }
-
-  .unit{
-    flex:1 1 140px;
-    max-width:170px;
-    background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.26);
-    border-radius:16px;
-    padding:14px 10px;
-    text-align:center;
-    backdrop-filter: blur(10px);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.18);
-  }
-
-  .num{
-    font-size:34px;
-    font-weight:950;
-    letter-spacing:1px;
-    text-shadow: 0 10px 26px rgba(0,0,0,.18);
-  }
-
-  .label{
-    margin-top:6px;
-    font-size:12px;
-    opacity:.92;
-  }
-
-  /* CTA — simple, elegant pink */
-  .cta-wrap{
-    margin-top:14px;
-    text-align:center;
-    position:relative;
-    z-index:2;
-  }
-
-  .cta{
-    display:inline-block;
-    text-decoration:none;
-    padding:12px 16px;
-    border-radius:14px;
-    font-weight:950;
-    font-size:13px;
-    letter-spacing:.35px;
-    color:#2b0f1c;
-    background: linear-gradient(90deg, #ff5aa8 0%, #ffb0d9 100%);
-    border: 1px solid rgba(255,255,255,.20);
-    box-shadow: 0 16px 34px rgba(255, 90, 168, .22);
-    transition: transform .18s ease, filter .18s ease;
-  }
-
-  .cta:hover{ transform: translateY(-1px); filter: brightness(1.03); }
-  .cta:active{ transform: translateY(0px) scale(.99); }
-
-  /* hearts */
-  .hearts span{
-    position:absolute;
-    font-size:18px;
-    opacity:.14;
-    animation:float 6s ease-in-out infinite;
-    z-index:1;
-    text-shadow: 0 10px 26px rgba(0,0,0,.10);
-  }
-  .h1{left:8%;top:75%}
-  .h2{left:18%;top:25%;animation-delay:1s}
-  .h3{left:35%;top:60%;animation-delay:2s}
-  .h4{left:55%;top:30%;animation-delay:.6s}
-  .h5{left:70%;top:70%;animation-delay:1.8s}
-  .h6{left:82%;top:38%;animation-delay:2.6s}
-  .h7{left:90%;top:78%;animation-delay:3.1s}
-  .h8{left:45%;top:85%;animation-delay:3.7s}
-
-  @keyframes float{
-    0%{transform:translateY(10px)}
-    50%{transform:translateY(-16px)}
-    100%{transform:translateY(10px)}
-  }
-
-  /* End state message */
-  .end{
-    display:none;
-    text-align:center;
-    margin-top:14px;
-    padding:14px 12px;
-    border-radius:16px;
-    background: rgba(255,255,255,.18);
-    border: 1px solid rgba(255,255,255,.26);
-    position:relative;
-    z-index:2;
-    font-weight:950;
-    backdrop-filter: blur(10px);
-  }
-
-  .card.is-ended .timer,
-  .card.is-ended .cta-wrap{
-    display:none;
-  }
-
-  .card.is-ended .end{
-    display:block;
-  }
-
-  /* ✅ MOBILE: force 2x2 grid so it looks like a “box” (not vertical stack) */
-  @media (max-width: 520px){
-    .wrap{ padding:12px; }
-    .title{ font-size:18px; }
-    .subtitle{ font-size:12px; }
-    .expires{ margin-top:10px; }
-
-    .timer{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      justify-content:unset;
-    }
-
-    .unit{
-      max-width:none;
-      flex:unset;
-      padding:12px 8px;
-    }
-
-    .num{ font-size:26px; }
-    .label{ font-size:11px; }
-
-    .cta{ font-size:12px; padding:11px 12px; }
-  }
+  .num{font-size:26px}
+}
 </style>
 </head>
 
 <body>
 <div class="wrap">
   <div class="card" id="card">
-    <div class="aura" aria-hidden="true"></div>
-    <div class="glass" aria-hidden="true"></div>
+    <div class="aura"></div>
+    <div class="glass"></div>
 
-    <div class="hearts" aria-hidden="true">
+    <div class="hearts">
       <span class="h1">❤</span><span class="h2">❤</span><span class="h3">❤</span><span class="h4">❤</span>
       <span class="h5">❤</span><span class="h6">❤</span><span class="h7">❤</span><span class="h8">❤</span>
+      <span class="h9">❤</span><span class="h10">❤</span><span class="h11">❤</span><span class="h12">❤</span>
     </div>
 
     <div class="badge">🎉 Festival Countdown</div>
@@ -264,40 +247,33 @@
     </div>
 
     <div class="cta-wrap">
-      <a class="cta" href="https://laloo.gr/el/172-gel-polish-15ml" target="_parent" rel="noopener">
+      <a class="cta" href="https://laloo.gr/el/172-gel-polish-15ml" target="_parent">
         ΠΡΟΛΑΒΕ ΤΙΣ ΠΡΟΣΦΟΡΕΣ ΠΡΙΝ ΕΞΑΝΤΛΗΘΟΥΝ
       </a>
     </div>
 
-    <div class="end" id="endmsg">Σας ευχαριστούμε για την αγάπη ❤️</div>
+    <div class="end">Σας ευχαριστούμε για την αγάπη ❤️</div>
   </div>
 </div>
 
 <script>
-  const end = new Date("2026-02-17T00:00:00+02:00").getTime();
-  const pad = n => n < 10 ? "0"+n : n;
+const end = new Date("2026-02-17T00:00:00+02:00").getTime();
+const pad = n => n<10 ? "0"+n : n;
 
-  function tick(){
-    let diff = end - Date.now();
-
-    if(diff <= 0){
-      document.getElementById("d").textContent = "00";
-      document.getElementById("h").textContent = "00";
-      document.getElementById("m").textContent = "00";
-      document.getElementById("s").textContent = "00";
-      document.getElementById("card").classList.add("is-ended");
-      return;
-    }
-
-    const t = Math.floor(diff/1000);
-    document.getElementById("d").textContent = pad(Math.floor(t/86400));
-    document.getElementById("h").textContent = pad(Math.floor(t%86400/3600));
-    document.getElementById("m").textContent = pad(Math.floor(t%3600/60));
-    document.getElementById("s").textContent = pad(t%60);
+function tick(){
+  let diff = end - Date.now();
+  if(diff<=0){
+    document.getElementById("card").classList.add("is-ended");
+    return;
   }
-
-  tick();
-  setInterval(tick, 1000);
+  const t = Math.floor(diff/1000);
+  d.textContent = pad(Math.floor(t/86400));
+  h.textContent = pad(Math.floor(t%86400/3600));
+  m.textContent = pad(Math.floor(t%3600/60));
+  s.textContent = pad(t%60);
+}
+tick();
+setInterval(tick,1000);
 </script>
 </body>
 </html>
