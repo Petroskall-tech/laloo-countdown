@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Countdown</title>
 
+<style>
+body{
+  margin:0;
+  background:transparent;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:16px;
+}
+
+.card{
+  position:relative;
+  border-radius:22px;
+  padding:22px 18px 20px;
+  color:#fff;
+  background:
+    radial-gradient(900px 380px at 10% 0%, rgba(255,62,157,.30), transparent 60%),
+    radial-gradient(820px 360px at 90% 20%, rgba(255,214,232,.24), transparent 55%),
+    linear-gradient(135deg, #2b0f1c, #14090f);
+  box-shadow:0 20px 55px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  background:rgba(255,214,232,.18);
+  border:1px solid rgba(255,214,232,.28);
+}
+
+.title{
+  margin-top:10px;
+  font-size:22px;
+  font-weight:900;
+}
+
+.sub{
+  margin-top:6px;
+  font-size:13px;
+  opacity:.9;
+}
+
+.timer{
+  margin-top:16px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.unit{
+  flex:1 1 120px;
+  max-width:160px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  padding:14px 10px;
+  text-align:center;
+}
+
+.num{
+  font-size:34px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.label{
+  margin-top:6px;
+  font-size:12px;
+  opacity:.85;
+}
+
+/* hearts */
+.hearts span{
+  position:absolute;
+  font-size:18px;
+  opacity:.18;
+  animation:float 6s ease-in-out infinite;
+}
+.h1{left:8%;top:75%}
+.h2{left:18%;top:25%;animation-delay:1s}
+.h3{left:35%;top:60%;animation-delay:2s}
+.h4{left:55%;top:30%;animation-delay:.6s}
+.h5{left:70%;top:70%;animation-delay:1.8s}
+.h6{left:82%;top:38%;animation-delay:2.6s}
+.h7{left:90%;top:78%;animation-delay:3.1s}
+.h8{left:45%;top:85%;animation-delay:3.7s}
+
+@keyframes float{
+  0%{transform:translateY(10px)}
+  50%{transform:translateY(-16px)}
+  100%{transform:translateY(10px)}
+}
+
+@media(max-width:520px){
+  .num{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="hearts">
+      <span class="h1">❤</span><span class="h2">❤</span><span class="h3">❤</span><span class="h4">❤</span>
+      <span class="h5">❤</span><span class="h6">❤</span><span class="h7">❤</span><span class="h8">❤</span>
+    </div>
+
+    <div class="badge">💗 Valentine Drop</div>
+    <div class="title">Λήγει σε</div>
+    <div class="sub">💞 Τα αποθέματα εξαντλούνται γρήγορα.</div>
+
+    <div class="timer">
+      <div class="unit"><div class="num" id="d">00</div><div class="label">Ημέρες</div></div>
+      <div class="unit"><div class="num" id="h">00</div><div class="label">Ώρες</div></div>
+      <div class="unit"><div class="num" id="m">00</div><div class="label">Λεπτά</div></div>
+      <div class="unit"><div class="num" id="s">00</div><div class="label">Δευτ.</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const end = new Date("2026-02-17T00:00:00+02:00").getTime();
+const pad = n => n < 10 ? "0"+n : n;
+
+function tick(){
+  let diff = end - Date.now();
+  if(diff < 0) diff = 0;
+
+  const t = Math.floor(diff/1000);
+  document.getElementById("d").textContent = pad(Math.floor(t/86400));
+  document.getElementById("h").textContent = pad(Math.floor(t%86400/3600));
+  document.getElementById("m").textContent = pad(Math.floor(t%3600/60));
+  document.getElementById("s").textContent = pad(t%60);
+}
+
+tick();
+setInterval(tick,1000);
+</script>
+</body>
+</html>
