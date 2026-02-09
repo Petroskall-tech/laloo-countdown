@@ -18,7 +18,7 @@
     padding:16px;
   }
 
-  /* Pink / Laloo vibe (no dark burgundy) */
+  /* Pink / Laloo vibe */
   .card{
     position:relative;
     border-radius:22px;
@@ -33,7 +33,7 @@
     overflow:hidden;
   }
 
-  /* Soft glass overlay to keep text readable on light pink */
+  /* Soft glass overlay for readability */
   .glass{
     position:absolute;
     inset:0;
@@ -41,7 +41,7 @@
     pointer-events:none;
   }
 
-  /* subtle extra aura */
+  /* subtle aura */
   .aura{
     position:absolute;
     inset:-35%;
@@ -135,7 +135,7 @@
     opacity:.92;
   }
 
-  /* CTA — simple, elegant pink (no rainbow) */
+  /* CTA — simple, elegant pink */
   .cta-wrap{
     margin-top:14px;
     text-align:center;
@@ -209,9 +209,30 @@
     display:block;
   }
 
-  @media(max-width:520px){
-    .num{font-size:28px}
-    .title{font-size:20px}
+  /* ✅ MOBILE: force 2x2 grid so it looks like a “box” (not vertical stack) */
+  @media (max-width: 520px){
+    .wrap{ padding:12px; }
+    .title{ font-size:18px; }
+    .subtitle{ font-size:12px; }
+    .expires{ margin-top:10px; }
+
+    .timer{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      justify-content:unset;
+    }
+
+    .unit{
+      max-width:none;
+      flex:unset;
+      padding:12px 8px;
+    }
+
+    .num{ font-size:26px; }
+    .label{ font-size:11px; }
+
+    .cta{ font-size:12px; padding:11px 12px; }
   }
 </style>
 </head>
