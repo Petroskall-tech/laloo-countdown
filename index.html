@@ -18,28 +18,37 @@
     padding:16px;
   }
 
+  /* Pink / Laloo vibe (no dark burgundy) */
   .card{
     position:relative;
     border-radius:22px;
     padding:22px 18px 18px;
-    color:#fff;
+    color:#ffffff;
     background:
-      radial-gradient(900px 380px at 10% 0%, rgba(255,62,157,.30), transparent 60%),
-      radial-gradient(820px 360px at 90% 20%, rgba(255,214,232,.24), transparent 55%),
-      linear-gradient(135deg, #2b0f1c, #14090f);
-    box-shadow:0 20px 55px rgba(0,0,0,.45);
+      radial-gradient(900px 420px at 12% 0%, rgba(255, 64, 160, .32), transparent 60%),
+      radial-gradient(820px 380px at 88% 10%, rgba(255, 214, 232, .30), transparent 60%),
+      radial-gradient(900px 520px at 60% 120%, rgba(255, 160, 205, .22), transparent 65%),
+      linear-gradient(135deg, #ff4aa6 0%, #ff86c6 35%, #ffb7df 70%, #ffd6ea 100%);
+    box-shadow:0 18px 46px rgba(0,0,0,.18);
     overflow:hidden;
   }
 
-  /* subtle extra festival aura */
+  /* Soft glass overlay to keep text readable on light pink */
+  .glass{
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(20,10,18,.22), rgba(20,10,18,.10));
+    pointer-events:none;
+  }
+
+  /* subtle extra aura */
   .aura{
     position:absolute;
-    inset:-40%;
+    inset:-35%;
     background:
-      radial-gradient(35% 30% at 18% 35%, rgba(255, 77, 170, .22), transparent 55%),
-      radial-gradient(35% 30% at 55% 25%, rgba(255, 210, 120, .18), transparent 55%),
-      radial-gradient(35% 30% at 78% 50%, rgba(120, 190, 255, .18), transparent 55%),
-      radial-gradient(35% 30% at 40% 70%, rgba(120, 255, 190, .14), transparent 55%);
+      radial-gradient(35% 30% at 18% 35%, rgba(255, 90, 180, .26), transparent 58%),
+      radial-gradient(35% 30% at 60% 20%, rgba(255, 255, 255, .20), transparent 58%),
+      radial-gradient(35% 30% at 82% 55%, rgba(255, 180, 220, .24), transparent 58%);
     filter: blur(26px);
     opacity:.9;
     pointer-events:none;
@@ -52,10 +61,11 @@
     padding:6px 10px;
     border-radius:999px;
     font-size:12px;
-    background:rgba(255,214,232,.18);
-    border:1px solid rgba(255,214,232,.28);
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.26);
     position:relative;
     z-index:2;
+    backdrop-filter: blur(6px);
   }
 
   .header{
@@ -71,20 +81,23 @@
     font-weight:950;
     letter-spacing:.2px;
     line-height:1.2;
+    text-shadow: 0 10px 26px rgba(0,0,0,.18);
   }
 
   .subtitle{
     margin-top:8px;
     font-size:13px;
-    opacity:.9;
+    opacity:.95;
+    text-shadow: 0 10px 26px rgba(0,0,0,.14);
   }
 
   .expires{
     margin-top:14px;
     font-size:13px;
-    font-weight:900;
-    letter-spacing:.35px;
-    opacity:.92;
+    font-weight:950;
+    letter-spacing:.45px;
+    opacity:.98;
+    text-shadow: 0 10px 26px rgba(0,0,0,.16);
   }
 
   .timer{
@@ -100,27 +113,29 @@
   .unit{
     flex:1 1 140px;
     max-width:170px;
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.26);
     border-radius:16px;
     padding:14px 10px;
     text-align:center;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.18);
   }
 
   .num{
     font-size:34px;
     font-weight:950;
     letter-spacing:1px;
+    text-shadow: 0 10px 26px rgba(0,0,0,.18);
   }
 
   .label{
     margin-top:6px;
     font-size:12px;
-    opacity:.85;
+    opacity:.92;
   }
 
-  /* CTA */
+  /* CTA — simple, elegant pink (no rainbow) */
   .cta-wrap{
     margin-top:14px;
     text-align:center;
@@ -136,18 +151,11 @@
     font-weight:950;
     font-size:13px;
     letter-spacing:.35px;
-    color:#1a0b12;
-    background: linear-gradient(90deg,
-      rgba(255, 77, 170, 1),
-      rgba(255, 210, 120, 1),
-      rgba(120, 255, 190, 1),
-      rgba(120, 190, 255, 1),
-      rgba(255, 77, 170, 1)
-    );
-    box-shadow: 0 18px 40px rgba(255, 77, 170, .20);
-    border: 1px solid rgba(255,255,255,.18);
+    color:#2b0f1c;
+    background: linear-gradient(90deg, #ff5aa8 0%, #ffb0d9 100%);
+    border: 1px solid rgba(255,255,255,.20);
+    box-shadow: 0 16px 34px rgba(255, 90, 168, .22);
     transition: transform .18s ease, filter .18s ease;
-    white-space:nowrap;
   }
 
   .cta:hover{ transform: translateY(-1px); filter: brightness(1.03); }
@@ -157,9 +165,10 @@
   .hearts span{
     position:absolute;
     font-size:18px;
-    opacity:.16;
+    opacity:.14;
     animation:float 6s ease-in-out infinite;
     z-index:1;
+    text-shadow: 0 10px 26px rgba(0,0,0,.10);
   }
   .h1{left:8%;top:75%}
   .h2{left:18%;top:25%;animation-delay:1s}
@@ -183,11 +192,12 @@
     margin-top:14px;
     padding:14px 12px;
     border-radius:16px;
-    background: rgba(255,214,232,.14);
-    border: 1px solid rgba(255,214,232,.22);
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.26);
     position:relative;
     z-index:2;
-    font-weight:900;
+    font-weight:950;
+    backdrop-filter: blur(10px);
   }
 
   .card.is-ended .timer,
@@ -202,7 +212,6 @@
   @media(max-width:520px){
     .num{font-size:28px}
     .title{font-size:20px}
-    .cta{white-space:normal}
   }
 </style>
 </head>
@@ -211,6 +220,7 @@
 <div class="wrap">
   <div class="card" id="card">
     <div class="aura" aria-hidden="true"></div>
+    <div class="glass" aria-hidden="true"></div>
 
     <div class="hearts" aria-hidden="true">
       <span class="h1">❤</span><span class="h2">❤</span><span class="h3">❤</span><span class="h4">❤</span>
@@ -233,8 +243,9 @@
     </div>
 
     <div class="cta-wrap">
-      <!-- Αν θες να πηγαίνει κάπου, βάλε href σε landing/κατηγορία -->
-      <a class="cta" href="https://laloo.gr/el/172-gel-polish-15ml" onclick="return false;">ΠΡΟΛΑΒΕ ΤΙΣ ΠΡΟΣΦΟΡΕΣ ΠΡΙΝ ΕΞΑΝΤΛΗΘΟΥΝ</a>
+      <a class="cta" href="https://laloo.gr/el/172-gel-polish-15ml" target="_parent" rel="noopener">
+        ΠΡΟΛΑΒΕ ΤΙΣ ΠΡΟΣΦΟΡΕΣ ΠΡΙΝ ΕΞΑΝΤΛΗΘΟΥΝ
+      </a>
     </div>
 
     <div class="end" id="endmsg">Σας ευχαριστούμε για την αγάπη ❤️</div>
@@ -265,7 +276,7 @@
   }
 
   tick();
-  setInterval(tick,1000);
+  setInterval(tick, 1000);
 </script>
 </body>
 </html>
